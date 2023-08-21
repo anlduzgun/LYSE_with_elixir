@@ -34,7 +34,7 @@ defmodule KittyGenServer do
     
   def handle_call(:terminate, _from, cats), do: {:stop, :normal, :ok, cats}
   
-  def handle_cast({:return, cat = %Cat{}, cats}), do: {:noreply, [cat | cats]}
+  def handle_cast({:return, cat = %Cat{}}, cats), do: {:noreply, [cat | cats]}
 
   def handle_info(msg, cats) do
     IO.puts("Unexpected massage #{msg}") 
